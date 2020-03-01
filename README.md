@@ -3,6 +3,17 @@ Cloud Spring Function
 
 # Start
 
+## As a Spring Boot App
+```
+mvn spring-boot:run
+```
+
+# Commands
+
+## Function
+```
+curl localhost:10080/reverseString -H "Content-Type: text/plain" -d "Hello World"
+```
 
 # Cloud Provider References
 
