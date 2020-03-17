@@ -6,6 +6,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>simple</module>
+        <module>jpa</module>
     </modules>
 
     <parent>
