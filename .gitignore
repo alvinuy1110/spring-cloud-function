@@ -8,4 +8,5 @@
 # Except the following (these override the above exclusions)
 !.idea/runConfigurations
 
-target/**
+
+**/target/**
