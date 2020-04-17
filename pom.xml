@@ -7,6 +7,8 @@
     <modules>
         <module>simple</module>
         <module>jpa</module>
+        <module>plain</module>
+        <module>spring-openwhisk-adapter</module>
     </modules>
 
     <parent>

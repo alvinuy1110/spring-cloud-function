@@ -6,6 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="plain" />
+        <module name="spring-openwhisk-adapter" />
         <module name="jpa" />
         <module name="simple" />
       </profile>
@@ -15,7 +17,9 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="cloud-spring-function" options="" />
       <module name="jpa" options="-parameters" />
+      <module name="plain" options="-parameters" />
       <module name="simple" options="-parameters" />
+      <module name="spring-openwhisk-adapter" options="" />
     </option>
   </component>
 </project>
