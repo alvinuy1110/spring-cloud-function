@@ -17,13 +17,21 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.2.2.RELEASE</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <dependencies>
+                    <!-- The following enables the "thin jar" deployment option. -->
+                    <dependency>
+                        <groupId>org.springframework.boot.experimental</groupId>
+                        <artifactId>spring-boot-thin-layout</artifactId>
+                        <version>1.0.21.RELEASE</version>
+                    </dependency>
+                </dependencies>
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>repackage</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -33,6 +41,60 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+
+            <!-- install the original jar -->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-install-plugin</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>install-file</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <packaging>jar</packaging>-->
+<!--                            <artifactId>${project.artifactId}-orig</artifactId>-->
+<!--                            <groupId>${project.groupId}</groupId>-->
+<!--                            <version>${project.version}</version>-->
+<!--&lt;!&ndash;                            <classifier>jar</classifier>&ndash;&gt;-->
+<!--                            <file>-->
+<!--                                ${project.build.directory}/${project.artifactId}-${project.version}.jar.original-->
+<!--                            </file>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+
+            <!-- to determine the deployUrl -->
+<!--            <plugin>-->
+<!--                <artifactId>maven-antrun-plugin</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>validate</phase>-->
+<!--                        <configuration>-->
+<!--                            <exportAntProperties>true</exportAntProperties>-->
+<!--                            <target>-->
+<!--                                <condition property="isSnapshot">-->
+<!--                                    <contains string="${project.version}" substring="SNAPSHOT" />-->
+<!--                                </condition>-->
+<!--                                <condition property="deployFileUrl"-->
+<!--                                           value="${project.distributionManagement.snapshotRepository.url}">-->
+<!--                                    <isset property="isSnapshot" />-->
+<!--                                </condition>-->
+<!--                                &lt;!&ndash; Properties in ant are immutable, so the following assignments-->
+<!--                                    will only take place if deployFileUrl is not yet set. &ndash;&gt;-->
+<!--                                <property name="deployFileUrl"-->
+<!--                                          value="${project.distributionManagement.repository.url}" />-->
+<!--                            </target>-->
+<!--                        </configuration>-->
+<!--                        <goals>-->
+<!--                            <goal>run</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+
 
         </plugins>
     </build>
@@ -57,7 +119,10 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>

@@ -13,3 +13,7 @@
 /jpa/openwhisk/m2/
 /plain/openwhisk/m2/
 /plain-openwhisk/openwhisk/m2/
+/openwhisk-adapter/openwhisk-jpa/m2/
+/openwhisk-adapter/openwhisk/m2/
+
+**/*.jar

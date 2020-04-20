@@ -8,6 +8,32 @@ Preparing the Application
 mvn clean install
 ```
 
+## The maven plugin
+
+Make sure to use the thin layout. Using repackage will make it a fat jar and executable.  This is the traditional spring boot.
+
+```
+         <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.2.2.RELEASE</version>
+                <dependencies>
+                    <!-- The following enables the "thin jar" deployment option. -->
+                    <dependency>
+                        <groupId>org.springframework.boot.experimental</groupId>
+                        <artifactId>spring-boot-thin-layout</artifactId>
+                        <version>1.0.21.RELEASE</version>
+                    </dependency>
+                </dependencies>
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>repackage</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+            </plugin>
+```
 Preparing the Docker Image
 ==========================
 
