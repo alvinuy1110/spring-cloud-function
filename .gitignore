@@ -12,3 +12,4 @@
 **/target/**
 /jpa/openwhisk/m2/
 /plain/openwhisk/m2/
+/plain-openwhisk/openwhisk/m2/

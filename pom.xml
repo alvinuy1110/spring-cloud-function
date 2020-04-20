@@ -9,6 +9,7 @@
         <module>jpa</module>
         <module>plain</module>
         <module>spring-openwhisk-adapter</module>
+        <module>plain-openwhisk</module>
     </modules>
 
     <parent>

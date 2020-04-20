@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>cloud-spring-function</artifactId>
+        <groupId>com.myproject</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>plain-openwhisk</artifactId>
+
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <wrapper.version>1.0.21.RELEASE</wrapper.version>
+
+    </properties>
+
+
+    <dependencies>
+        <!-- trying to add this; not sure if correct -->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-function-web</artifactId>-->
+<!--            <version>${spring.cloud.function.version}</version>-->
+<!--        </dependency>-->
+
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-function-adapter-openwhisk</artifactId>
+            <version>3.0.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.myproject</groupId>
+            <artifactId>plain</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.springframework.boot.experimental</groupId>
+                        <artifactId>spring-boot-thin-layout</artifactId>
+                        <version>${wrapper.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <!-- this will execute
+                dryrun to pull down the repo in target/thin/root/repository
+            -->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot.experimental</groupId>-->
+<!--                <artifactId>spring-boot-thin-maven-plugin</artifactId>-->
+<!--&lt;!&ndash;                <version>1.0.24.RELEASE</version>&ndash;&gt;-->
+<!--                <version>${wrapper.version}</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>resolve</id>-->
+<!--                        <goals>-->
+<!--                            <goal>resolve</goal>-->
+<!--                        </goals>-->
+<!--                        <inherited>false</inherited>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+        </plugins>
+    </build>
+</project>
