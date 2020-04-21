@@ -146,4 +146,20 @@ wsk -i activation get <activationId>
 
 wsk -i activation result afaf6ce5eded4b00af6ce5ededcb0025
 ## test run docker
-docker run --publish 8000:8080 --name jpa alvinuy1110/cloud-function-jpa-app
+docker run --publish 8080:8080 --name jpa alvinuy1110/cloud-function-jpa-app
+
+## Curl Commands
+
+The web URL syntax is for web action is 
+
+```
+https://{APIHOST}/api/v1/web/{QUALIFIED ACTION NAME}.{EXT}
+```
+* where qualified action name - has namespace/ package name
+* ext - extension (i.e. json, xml), assuming the service supports it
+
+### POST
+curl -kv https://172.17.0.4:31001/api/v1/web/guest/default/jpa.json  -H "Content-type: application/json" -d '{"payload":"1"}'
+
+### GET
+curl -kv https://172.17.0.4:31001/api/v1/web/guest/default/jpa.json?payload=1

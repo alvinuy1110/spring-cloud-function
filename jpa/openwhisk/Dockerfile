@@ -7,8 +7,8 @@ ADD app.properties .
 ENV JAVA_OPTS=""
 ## original
 ENTRYPOINT [ "java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "runner.jar", "--thin.root=/m2", "--thin.name=function", \
- "--function.name=getStudent" \
-  "--spring.main.sources=com.myproject.cloud.CloudFunctionJpaApp"]
+ "--function.name=getStudent", \
+ "--spring.main.sources=com.myproject.cloud.CloudFunctionJpaApp"]
 ## as spring boot app
 ## supply external properties, spring config
 # ENTRYPOINT [ "java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "runner.jar", "--thin.root=/m2","--thin.name=function", "--function.name=getStudent", \
