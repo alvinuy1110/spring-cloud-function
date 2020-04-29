@@ -66,8 +66,16 @@ WSK Commands
 
 
 ## This works
-wsk -i action create jokes --kind python:3 --main joke jokes_small.zip
+wsk -i action create jokes --kind python:3 --main joke jokes_small.zip --web true
 wsk -i action delete jokes 
 wsk -i action invoke jokes --blocking --result
 wsk -i activation get <activationId>
+
+wsk -i action get jokes --url
+
+
+WEB URL
+=======
+
+https://172.17.0.4:31001/api/v1/web/guest/default/jokes.json
 
